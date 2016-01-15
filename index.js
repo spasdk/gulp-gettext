@@ -206,6 +206,13 @@ function xgettext ( callback ) {
 }
 
 
+// task set was turned off in gulp.js
+if ( !config ) {
+    // do not create tasks
+    return;
+}
+
+
 // extracts translatable strings
 gulp.task('lang', function ( done ) {
     config = load(path.join(process.env.PATH_CFG, 'lang'));
