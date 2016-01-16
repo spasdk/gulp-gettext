@@ -1,53 +1,64 @@
 /**
  * Gettext localization configuration for lang gulp task.
+ *
+ * @author Stanislav Kalashnik <darkpark.main@gmail.com>
+ * @license GNU GENERAL PUBLIC LICENSE Version 3
  */
 
 'use strict';
 
-// public
-module.exports = {
-    // turn on/off localization support
-    active: false,
+var path   = require('path'),
+    extend = require('extend'),
+    config = require('spa-gulp/config');
 
-    // list of languages to generate localization files for
-    languages: ['ru'],
 
-    // Specifies the encoding of the input files.
-    // This option is needed only if some untranslated message strings or their corresponding comments
-    // contain non-ASCII characters.
-    // @flag --from-code=name
-    fromCode: 'UTF-8',
+// base config
+// each profile inherits all options from the "default" profile
+module.exports = extend(true, {}, config, {
+    default: {
+        // turn on/off localization support
+        active: false,
 
-    // Place comment blocks starting with tag and preceding keyword lines in the output file.
-    // Without a tag, the option means to put all comment blocks preceding keyword lines in the output file.
-    // Note that comment blocks supposed to be extracted must be adjacent to keyword lines.
-    // @flag --add-comments[=tag]
-    addComments: 'gettext',
+        // list of languages to generate localization files for
+        languages: ['ru'],
 
-    // Write the .po file using indented style.
-    // @flag --indent
-    indent: false,
+        // Specifies the encoding of the input files.
+        // This option is needed only if some untranslated message strings or their corresponding comments
+        // contain non-ASCII characters.
+        // @flag --from-code=name
+        fromCode: 'UTF-8',
 
-    // Write "#: filename:line" lines.
-    // @flag --no-location
-    noLocation: true,
+        // Place comment blocks starting with tag and preceding keyword lines in the output file.
+        // Without a tag, the option means to put all comment blocks preceding keyword lines in the output file.
+        // Note that comment blocks supposed to be extracted must be adjacent to keyword lines.
+        // @flag --add-comments[=tag]
+        addComments: 'gettext',
 
-    // Do not break long message lines.
-    // Message lines whose width exceeds the output page width will not be split into several lines.
-    // Only file reference lines which are wider than the output page width will be split.
-    // @flag --no-wrap
-    noWrap: true,
+        // Write the .po file using indented style.
+        // @flag --indent
+        indent: false,
 
-    // Generate sorted output.
-    // Note that using this option makes it much harder for the translator to understand each message’s context.
-    // @flag --sort-output
-    sortOutput: true,
+        // Write "#: filename:line" lines.
+        // @flag --no-location
+        noLocation: true,
 
-    // Sort output by file location.
-    // @flag --sort-by-file
-    sortByFile: false,
+        // Do not break long message lines.
+        // Message lines whose width exceeds the output page width will not be split into several lines.
+        // Only file reference lines which are wider than the output page width will be split.
+        // @flag --no-wrap
+        noWrap: true,
 
-    // Increase verbosity level.
-    // @flag --verbose
-    verbose: false
-};
+        // Generate sorted output.
+        // Note that using this option makes it much harder for the translator to understand each message’s context.
+        // @flag --sort-output
+        sortOutput: true,
+
+        // Sort output by file location.
+        // @flag --sort-by-file
+        sortByFile: false,
+
+        // Increase verbosity level.
+        // @flag --verbose
+        verbose: false
+    }
+});
