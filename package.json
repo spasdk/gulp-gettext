@@ -1,12 +1,12 @@
 {
-    "name": "spa-gulp-gettext",
+    "name": "spa-plugin-gettext",
     "version": "1.3.0",
     "description": "Tasks to work with gettext localization files.",
     "author": {
         "name": "Stanislav Kalashnik",
         "email": "darkpark.main@gmail.com"
     },
-    "repository": "spasdk/gulp-gettext",
+    "repository": "spasdk/plugin-gettext",
     "scripts": {
         "lint": "eslint *.js",
         "jsdoc": "jsdoc --destination doc *.js readme.md"
