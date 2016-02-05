@@ -12,11 +12,9 @@
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
-        "del": "2.*.*",
         "extend": "3.*.*",
         "gettext-parser": "1.*.*",
-        "require-nocache": "1.*.*",
-        "spa-gulp": "spasdk/gulp"
+        "require-nocache": "1.*.*"
     },
     "keywords": [
         "spa",
