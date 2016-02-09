@@ -17,7 +17,7 @@ var fs    = require('fs'),
     log   = require('gulp-util').log,
     exec  = require('child_process').exec,
     load  = require('require-nocache')(module),
-    title = 'lang    '.inverse,
+    title = 'lang    ',
     config;
 
 
@@ -66,7 +66,7 @@ function po2js ( poFile, jsonFile ) {
 
 
 function msginit ( langName, potFile, poFile, callback ) {
-    var title  = 'msginit '.inverse,
+    var title  = 'msginit ',
         params = [
             'msginit',
             '--input="'  + potFile  + '"',
@@ -83,11 +83,11 @@ function msginit ( langName, potFile, poFile, callback ) {
     command = params.join(' ');
 
     // print
-    if ( config.verbose ) { log(title, command.yellow); }
+    if ( config.verbose ) { log(title, command); }
 
     exec(command, function ( error, stdout, stderr ) {
         if ( error ) {
-            log(title, error.toString().trim().red);
+            log(title, error.toString().trim());
         } else {
             (stdout + stderr).trim().split('\n').forEach(function ( line ) {
                 log(title, line);
@@ -107,7 +107,7 @@ function msginit ( langName, potFile, poFile, callback ) {
 
 
 function msgmerge ( langName, potFile, poFile, callback ) {
-    var title    = 'msgmerge'.inverse,
+    var title    = 'msgmerge',
         msgmerge = [
             'msgmerge',
             '--update',
@@ -130,16 +130,16 @@ function msgmerge ( langName, potFile, poFile, callback ) {
     command = msgmerge.join(' ');
 
     if ( config.verbose ) {
-        log(title, command.yellow);
+        log(title, command);
     }
 
     exec(command, function ( error, stdout, stderr ) {
         /* eslint no-unused-vars: 0 */
 
         if ( error ) {
-            log(title, error.toString().trim().red);
+            log(title, error.toString().trim());
         } else {
-            log(title, langName.toUpperCase().green + ': ' + stderr.trim().split('\n')[1]);
+            log(title, langName.toUpperCase() + ': ' + stderr.trim().split('\n')[1]);
         }
         callback(error);
     });
@@ -150,7 +150,7 @@ function xgettext ( callback ) {
     var srcFile = path.join(process.env.PATH_APP, 'js', 'develop.js'),
         dstFile = path.join(process.env.PATH_SRC, 'lang', 'messages.pot'),
         pkgInfo = load(process.env.PACKAGE),
-        title   = 'xgettext'.inverse,
+        title   = 'xgettext',
         params  = [
             'xgettext',
             '--force-po',
@@ -178,12 +178,12 @@ function xgettext ( callback ) {
     command = params.join(' ');
 
     if ( config.verbose ) {
-        log(title, command.yellow);
+        log(title, command);
     }
 
     exec(command, function ( error, stdout, stderr ) {
         if ( error ) {
-            log(title, error.toString().trim().red);
+            log(title, error.toString().trim());
             return callback(error);
         }
 
@@ -195,7 +195,7 @@ function xgettext ( callback ) {
 
         if ( stderr ) {
             stderr.trim().split('\n').forEach(function ( line ) {
-                log(title, line.red);
+                log(title, line);
             });
         }
 
@@ -219,7 +219,7 @@ gulp.task('lang', function ( done ) {
 
     if ( !config.active ) {
         // just exit
-        log(title, 'task is disabled'.grey);
+        log(title, 'task is disabled');
 
         done();
     }
