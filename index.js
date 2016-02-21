@@ -60,7 +60,7 @@ function po2js ( poFile, jsonFile ) {
     }
 
     // store js file
-    fs.writeFileSync(jsonFile, JSON.stringify(result, null, '\t'), {encoding:'utf8'});
+    fs.writeFileSync(jsonFile, JSON.stringify(result, null, '\t'), {encoding: 'utf8'});
     return result;
 }
 
@@ -95,7 +95,7 @@ function msginit ( langName, potFile, poFile, callback ) {
 
             // Content-Type: text/plain; charset=UTF-8
             fs.writeFileSync(poFile,
-                fs.readFileSync(poFile, {encoding:'utf8'}).replace(
+                fs.readFileSync(poFile, {encoding: 'utf8'}).replace(
                     'Content-Type: text/plain; charset=ASCII',
                     'Content-Type: text/plain; charset=UTF-8'
                 )
@@ -184,7 +184,8 @@ function xgettext ( callback ) {
     exec(command, function ( error, stdout, stderr ) {
         if ( error ) {
             log(title, error.toString().trim());
-            return callback(error);
+            callback(error);
+            return;
         }
 
         if ( stdout ) {
@@ -237,7 +238,8 @@ gulp.task('lang', function ( done ) {
             };
 
         if ( error ) {
-            return done();
+            done();
+            return;
         }
 
         config.languages.forEach(function ( langName ) {
