@@ -20,9 +20,8 @@
         "spa",
         "spasdk",
         "framework",
-        "gulp",
         "develop",
-        "task",
+        "plugin",
         "gettext"
     ],
     "license": "GPL-3.0"
