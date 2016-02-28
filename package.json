@@ -14,7 +14,8 @@
     "dependencies": {
         "extend": "3.*.*",
         "gettext-parser": "1.*.*",
-        "require-nocache": "1.*.*"
+        "require-nocache": "1.*.*",
+        "spa-plugin": "spasdk/plugin"
     },
     "keywords": [
         "spa",
