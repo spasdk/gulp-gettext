@@ -11,7 +11,8 @@
         "url": "https://github.com/spasdk/plugin-gettext.git"
     },
     "scripts": {
-        "lint": "eslint *.js",
+        "lint": "eslint .",
+        "test": "npm run lint",
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
@@ -21,6 +22,7 @@
         "spa-plugin": "spasdk/plugin"
     },
     "devDependencies": {
+        "eslint": "2.*.*",
         "spa-eslint-config": "spasdk/eslint-config"
     },
     "keywords": [

@@ -61,6 +61,7 @@ function po2js ( poFile, jsonFile ) {
 
     // store js file
     fs.writeFileSync(jsonFile, JSON.stringify(result, null, '\t'), {encoding: 'utf8'});
+
     return result;
 }
 
@@ -185,6 +186,7 @@ function xgettext ( callback ) {
         if ( error ) {
             log(title, error.toString().trim());
             callback(error);
+
             return;
         }
 
@@ -239,6 +241,7 @@ gulp.task('lang', function ( done ) {
 
         if ( error ) {
             done();
+
             return;
         }
 
