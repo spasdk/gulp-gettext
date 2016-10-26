@@ -19,7 +19,7 @@
         "extend": "3.*.*",
         "gettext-parser": "1.*.*",
         "require-nocache": "1.*.*",
-        "spa-plugin": "spasdk/plugin"
+        "spa-plugin": "1.*.*"
     },
     "devDependencies": {
         "eslint": "3.*.*",
