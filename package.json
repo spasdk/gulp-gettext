@@ -1,6 +1,6 @@
 {
     "name": "spa-plugin-gettext",
-    "version": "1.3.0",
+    "version": "0.0.1",
     "description": "Tasks to work with gettext localization files.",
     "author": {
         "name": "Stanislav Kalashnik",
