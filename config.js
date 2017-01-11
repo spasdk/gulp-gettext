@@ -13,8 +13,14 @@ var path     = require('path'),
 
 // main
 profiles.default = extend(true, {}, config, {
-    // list of languages to generate localization files for
-    languages: ['ru'],
+    // main entry point
+    source: path.join(config.source, 'lang'),
+
+    // intended output file
+    target: path.join(config.target, 'lang'),
+
+    // list of language codes in ISO 639-1 format to generate localization files for
+    languages: [],
 
     // Specifies the encoding of the input files.
     // This option is needed only if some untranslated message strings or their corresponding comments
