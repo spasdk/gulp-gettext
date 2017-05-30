@@ -19,6 +19,9 @@ profiles.default = extend(true, {}, config, {
     // intended output file
     target: path.join(config.target, 'lang'),
 
+    // javascript source file
+    jsData: path.join(config.target, 'js', 'develop.js'),
+
     // list of language codes in ISO 639-1 format to generate localization files for
     languages: [],
 
